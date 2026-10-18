@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prana Path – Online Yoga Programs</title>
+<meta name="description" content="Online yoga programs in Asana, Pranayama and Kriya, Meditation and Karma Yoga philosophy.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪷</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F1; --ink:#17303A; --teal:#1F5F5B; --teal-d:#143F3E;
+  --gold:#F0A93A; --mist:#DCE7DE; --white:#fff; --muted:#4F6670;
+  --font-d:'Marcellus',Georgia,serif; --font-b:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--font-d);font-weight:400;line-height:1.15}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:12px}
+section{padding:80px 0}
+.lead{color:var(--muted);max-width:60ch}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(242,246,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--font-d);font-size:1.4rem;text-decoration:none;color:var(--teal-d)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--teal)}
+.menu-btn{display:none;background:none;border:1px solid var(--teal);color:var(--teal);border-radius:8px;padding:6px 12px;font:inherit;font-weight:600;cursor:pointer}
+
+/* buttons */
+.btn{display:inline-block;background:var(--teal);color:var(--white);padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--teal-d)}
+.btn.gold{background:var(--gold);color:var(--ink)}
+.btn.gold:hover{background:#e29a27}
+.btn.ghost{background:transparent;color:var(--teal);border:2px solid var(--teal)}
+.btn.ghost:hover{background:var(--teal);color:var(--white)}
+
+/* hero */
+.hero{padding:70px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);color:var(--teal-d);margin-bottom:18px}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:46ch;margin-bottom:28px}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+.breath{position:relative;width:min(100%,380px);aspect-ratio:1;margin:0 auto;display:grid;place-items:center}
+.breath .ring{position:absolute;border-radius:50%;inset:0;background:radial-gradient(circle,var(--gold) 0,var(--gold) 28%,var(--mist) 29%,var(--mist) 100%);animation:breathe 8s ease-in-out infinite}
+.breath .ring.r2{inset:12%;background:var(--teal);animation-delay:.3s}
+.breath .ring.r3{inset:28%;background:var(--bg);animation-delay:.6s}
+.breath span{position:relative;font-family:var(--font-d);font-size:1.5rem;color:var(--teal-d);text-align:center}
+.breath span::after{content:"Inhale";animation:label 8s steps(1) infinite}
+@keyframes breathe{0%,100%{transform:scale(.78)}50%{transform:scale(1)}}
+@keyframes label{0%{content:"Inhale"}50%{content:"Exhale"}}
+.caption{text-align:center;font-size:.9rem;color:var(--muted);margin-top:14px}
+
+/* stats strip */
+.strip{background:var(--teal-d);color:var(--white);padding:34px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.strip strong{display:block;font-family:var(--font-d);font-size:2rem;color:var(--gold);font-weight:400}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about ul{list-style:none;display:grid;gap:14px}
+.about li{background:var(--white);padding:18px 20px;border-left:4px solid var(--gold);border-radius:0 12px 12px 0}
+.about li b{display:block;color:var(--teal-d)}
+
+/* programs */
+.programs{background:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:36px}
+.card{background:var(--bg);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column}
+.card .icon{font-size:2rem;margin-bottom:10px}
+.card h3{font-size:1.5rem;color:var(--teal-d);margin-bottom:8px}
+.card p{color:var(--muted);font-size:.98rem;margin-bottom:12px}
+.card ul{list-style:none;font-size:.95rem;margin-top:auto}
+.card li::before{content:"✓ ";color:var(--teal);font-weight:700}
+.card.feature{background:var(--teal);color:var(--white)}
+.card.feature h3,.card.feature li::before{color:var(--gold)}
+.card.feature p{color:#d6e6e2}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:36px}
+.plan{background:var(--white);border:2px solid var(--mist);border-radius:18px;padding:28px 22px;text-align:center;display:flex;flex-direction:column;position:relative}
+.plan h3{font-size:1.3rem;margin-bottom:6px}
+.plan .price{font-family:var(--font-d);font-size:2.4rem;color:var(--teal-d);margin:8px 0 2px}
+.plan .per{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.plan ul{list-style:none;font-size:.95rem;margin-bottom:22px;color:var(--muted)}
+.plan li{padding:4px 0}
+.plan .btn{margin-top:auto}
+.plan.best{border-color:var(--gold);background:#FFF9EC}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.8rem;font-weight:700;padding:3px 14px;border-radius:999px;white-space:nowrap}
+.note{margin-top:22px;font-size:.92rem;color:var(--muted);text-align:center}
+
+/* contact */
+.contact{background:var(--mist)}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
+.info p{margin:10px 0;color:var(--muted)}
+.info b{color:var(--ink)}
+form{background:var(--white);padding:30px;border-radius:18px;display:grid;gap:16px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border:1.5px solid #b9cbc3;border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--gold);border-color:var(--teal)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.msg{display:none;background:#E6F4EA;border-left:4px solid var(--teal);padding:14px 16px;border-radius:8px;font-size:.95rem}
+.msg.show{display:block}
+
+footer{background:var(--teal-d);color:#cfe0dc;text-align:center;padding:30px 20px;font-size:.92rem}
+footer b{color:var(--gold);font-family:var(--font-d);font-weight:400;font-size:1.1rem}
+
+@media (max-width:820px){
+  section{padding:56px 0}
+  .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .hero{padding-top:40px}
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 20px 16px;border-bottom:1px solid var(--mist)}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:12px 0}
+  .strip .wrap{grid-template-columns:1fr;gap:14px}
+  .row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .breath .ring{animation:none;transform:scale(.9)}
+  .breath span::after{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home">🪷 Prana Path</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1>Yoga that fits into your day, taught live from our studio to your screen.</h1>
+      <p>Prana Path offers online programs in asana, pranayama and kriya, meditation and the philosophy of karma yoga, rooted in the classical tradition and designed for modern schedules.</p>
+      <div class="actions">
+        <a class="btn gold" href="#pricing">See programs and pricing</a>
+        <a class="btn ghost" href="#contact">Book a free trial class</a>
+      </div>
+    </div>
+    <div>
+      <div class="breath" role="img" aria-label="Animated circle that expands and contracts to guide breathing">
+        <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+        <span></span>
+      </div>
+      <p class="caption">Breathe with the circle for one minute.</p>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div><strong>5,000+</strong>students taught online</div>
+    <div><strong>12 years</strong>of teaching experience</div>
+    <div><strong>Live + recorded</strong>classes, so you never miss one</div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <h2>A complete practice, not just exercise</h2>
+      <p class="lead">Classical yoga works on the body, the breath, the mind and the way we act in daily life. Our programs follow that path step by step, led by certified teachers who adjust each class to your level.</p>
+      <br>
+      <a class="btn" href="#programs">Explore the programs</a>
+    </div>
+    <ul>
+      <li><b>Certified teachers</b>Trained in yoga therapy and traditional methods.</li>
+      <li><b>Small live batches</b>Maximum 15 students, so every person gets feedback.</li>
+      <li><b>All levels welcome</b>Beginners, office workers, seniors and experienced practitioners.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="wrap">
+    <h2>Our programs</h2>
+    <p class="lead">Each program runs for one month with live classes, recordings and a practice guide.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🧘</div>
+        <h3>Asana</h3>
+        <p>Yoga postures that build strength, flexibility and balance, with a focus on safe alignment.</p>
+        <ul><li>5 live classes a week</li><li>Sun salutations and standing poses</li><li>Back and neck care sequences</li></ul>
+      </article>
+      <article class="card">
+        <div class="icon">🌬️</div>
+        <h3>Pranayama and Kriya</h3>
+        <p>Breathing techniques and cleansing practices that calm the nervous system and improve lung capacity.</p>
+        <ul><li>4 live classes a week</li><li>Nadi shodhana, bhramari, kapalabhati</li><li>Jala neti and shatkarma basics</li></ul>
+      </article>
+      <article class="card">
+        <div class="icon">🕉️</div>
+        <h3>Meditation</h3>
+        <p>Guided sessions to train attention, reduce stress and sleep better.</p>
+        <ul><li>Daily 30-minute sessions</li><li>Mindfulness and mantra methods</li><li>Yoga nidra for deep rest</li></ul>
+      </article>
+      <article class="card feature">
+        <div class="icon">📖</div>
+        <h3>Karma Yoga Philosophy</h3>
+        <p>Learn how to act with focus and without anxiety about results, drawing on the Bhagavad Gita.</p>
+        <ul><li>2 discussion classes a week</li><li>Reading guide and reflection tasks</li><li>Applying karma yoga at work</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="lead">Simple monthly prices. Your first class is free, and you can cancel before the next month starts.</p>
+    <div class="price-grid">
+      <div class="plan">
+        <h3>Asana</h3>
+        <div class="price">₹1,499</div><div class="per">per month</div>
+        <ul><li>20 live classes</li><li>Recordings for 30 days</li><li>Posture guide PDF</li></ul>
+        <button class="btn ghost" data-plan="Asana – ₹1,499/month">Choose Asana</button>
+      </div>
+      <div class="plan">
+        <h3>Pranayama and Kriya</h3>
+        <div class="price">₹1,799</div><div class="per">per month</div>
+        <ul><li>16 live classes</li><li>Recordings for 30 days</li><li>Kriya practice manual</li></ul>
+        <button class="btn ghost" data-plan="Pranayama and Kriya – ₹1,799/month">Choose Pranayama and Kriya</button>
+      </div>
+      <div class="plan">
+        <h3>Meditation</h3>
+        <div class="price">₹999</div><div class="per">per month</div>
+        <ul><li>30 guided sessions</li><li>Audio recordings</li><li>Yoga nidra tracks</li></ul>
+        <button class="btn ghost" data-plan="Meditation – ₹999/month">Choose Meditation</button>
+      </div>
+      <div class="plan">
+        <h3>Karma Yoga Philosophy</h3>
+        <div class="price">₹799</div><div class="per">per month</div>
+        <ul><li>8 discussion classes</li><li>Reading guide</li><li>Reflection journal</li></ul>
+        <button class="btn ghost" data-plan="Karma Yoga Philosophy – ₹799/month">Choose Karma Yoga</button>
+      </div>
+      <div class="plan best">
+        <span class="badge">Best value, save 35%</span>
+        <h3>Complete Path</h3>
+        <div class="price">₹3,999</div><div class="per">per month</div>
+        <ul><li>All four programs</li><li>Priority batch timing</li><li>One private session</li></ul>
+        <button class="btn gold" data-plan="Complete Path – ₹3,999/month">Choose Complete Path</button>
+      </div>
+    </div>
+    <p class="note">Prices are in Indian rupees and include GST. Sample prices for demonstration.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="info">
+      <h2>Order or ask a question</h2>
+      <p class="lead">Pick a program, tell us your preferred time and we will confirm your batch within one working day.</p>
+      <p><b>Email:</b> hello@pranapath.example</p>
+      <p><b>Phone / WhatsApp:</b> +91 98765 43210</p>
+      <p><b>Class timings:</b> 6:00 am, 8:00 am and 7:00 pm IST</p>
+      <p><b>Studio:</b> Bengaluru, Karnataka</p>
+    </div>
+    <form id="orderForm" novalidate>
+      <div class="row">
+        <label>Full name<input type="text" id="name" required autocomplete="name"></label>
+        <label>Phone<input type="tel" id="phone" required autocomplete="tel"></label>
+      </div>
+      <label>Email<input type="email" id="email" required autocomplete="email"></label>
+      <label>Program
+        <select id="plan" required>
+          <option value="">Select a program</option>
+          <option>Asana – ₹1,499/month</option>
+          <option>Pranayama and Kriya – ₹1,799/month</option>
+          <option>Meditation – ₹999/month</option>
+          <option>Karma Yoga Philosophy – ₹799/month</option>
+          <option>Complete Path – ₹3,999/month</option>
+          <option>Free trial class</option>
+        </select>
+      </label>
+      <label>Message (optional)<textarea id="note" rows="3" placeholder="Experience level, health conditions, preferred time"></textarea></label>
+      <button class="btn" type="submit">Place order request</button>
+      <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <b>Prana Path</b><br>
+  Online yoga programs · Made for a CIA–2 assignment at S-VYASA<br>
+  © 2026 Prana Path. All rights reserved.
+</footer>
+
+<script>
+const menu=document.getElementById('menu'),btn=document.getElementById('menuBtn');
+btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',e=>{if(e.target.tagName==='A'){menu.classList.remove('open');btn.setAttribute('aria-expanded',false)}});
+
+document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>{
+  document.getElementById('plan').value=b.dataset.plan;
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  document.getElementById('name').focus({preventScroll:true});
+}));
+
+document.getElementById('orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=document.getElementById('msg');
+  const v=id=>document.getElementById(id).value.trim();
+  if(!v('name')||!v('phone')||!v('email')||!v('plan')){
+    msg.textContent='Please fill in your name, phone, email and program.';
+    msg.classList.add('show');return;
+  }
+  if(!/^\S+@\S+\.\S+$/.test(v('email'))){
+    msg.textContent='Enter a valid email address, for example name@example.com.';
+    msg.classList.add('show');return;
+  }
+  msg.textContent='Thank you, '+v('name')+'. We received your request for "'+v('plan')+'" and will contact you on '+v('phone')+' within one working day.';
+  msg.classList.add('show');
+  e.target.reset();
+});
+</script>
+</body>
+</html>
